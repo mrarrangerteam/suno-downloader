@@ -1,0 +1,36 @@
+{
+    "manifest_version": 3,
+    "name": "Suno Workspace Manager",
+    "version": "1.0.0",
+    "description": "A personal productivity tool to manage and export your own songs from your Suno.com workspace. Works only with songs you created in your personal workspace.",
+    "permissions": [
+          "storage",
+          "downloads"
+    ],
+    "host_permissions": [
+          "https://suno.com/*",
+          "https://*.suno.com/*"
+    ],
+    "action": {
+          "default_popup": "popup.html",
+          "default_icon": {
+                  "16": "icons/icon16.png",
+                  "48": "icons/icon48.png",
+                  "128": "icons/icon128.png"
+          }
+    },
+    "icons": {
+          "16": "icons/icon16.png",
+          "48": "icons/icon48.png",
+          "128": "icons/icon128.png"
+    },
+    "content_scripts": [
+          {
+                  "matches": ["https://suno.com/*", "https://*.suno.com/*"],
+                  "js": ["content.js"]
+          }
+    ],
+    "background": {
+          "service_worker": "background.js"
+    }
+}
